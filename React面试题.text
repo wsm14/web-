@@ -1,0 +1,20 @@
+
+1,setState是同步还是异步
+其实分为两种情况：
+  在组件生命周期或React合成事件（onclick等）中，setState是异步；
+
+  在setTimeout或者原生dom事件中，setState是同步的
+
+  在React源码中有判断
+
+3，setState的作用
+
+    修改state的值，然后调用render方法，更新页面，第一个参数可以是对象，函数或者null，第二个参数是回调函数
+
+    多个setState形成队列通过链表合并成一个setState进行更新
+
+    异步好处是 如果同步更新的话，每更新一次就是render，render频繁调用，效率太低了
+
+    如果同步更新了state  但是还没有执行render函数，那么子组件的props和state不能保持同步，就会引发很多问题。
+
+    state数值合并是通过  Object.assign({},state,newState);

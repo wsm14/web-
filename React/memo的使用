@@ -1,0 +1,7 @@
+
+ memo是一个高阶组件
+
+
+ 类组件可以用shouldComponent或者PureComponent
+
+ 函数组件则使用memo（），传入一个组件，会返回一个组件，当props不发生改变的时候，组件也不会更新

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+    // keys => 所有的key 取出来
+    // values => 所有的value 取出来
+    // entries => 所有的key:value 键值对取出来
+    // let arr = [1,2,3,4,5]
+    // console.log(arr.entries())
+    // for (let [key,val] of arr.entries()) {
+    //     console.log(key,val)
+    // }
+
+
+    // for (let val of arr.keys()) {
+    //     console.log(val)
+    // }
+
+    // for (let val of arr.values()) {
+    //     console.log(val)
+    // }
+
+
+
+    //event  loop  事件循环机制   由三个部分组成    调用栈  消息队列  微任务队列
+
+
+
+    //window.open不能下载后台返回的地址      用动态创建a标签来进行下载    用户主动去触发事件的浏览器不会阻止，什么是用户主动触发的呢？就是当用户去点击的一瞬间就弹出这种浏览器是不会阻止的，如果是通过setTimeout定时器延时弹出或者ajax异步处理回调后在open这种浏览器就会认为是恶意弹出就会立刻阻止。
+
+
+    //小程序生成海报失败   因为海报中的头像地址没有加在公众号上的配置中   
+
+
+    //MVVM是Vue双向绑定    双向绑定2.0是用object.defineproxty    3.0是用proxy    
+    //    MVC是React单向数据绑定
+
+    //React.careateContext    子组件用爷爷辈组件的数据
+
+
+
+    let arr = [12,26,12,15,88,26,9,10,9,15];
+    console.log(arr.length);
+
+    // console.log([...new Set(arr)])
+    
+    let arr1 = arr.filter((item,index,arr)=>{
+        // console.log(arr,item)
+        return arr.indexOf(item) === index;
+
+    })
+    console.log(arr1);
+
+
+    let arr4 = [];
+    for (let i = 0; i < arr.length; i++) {
+       
+        let arr3 = arr.slice(i+1);
+        if(arr3.indexOf(arr[i]) === -1){
+            arr4.push(arr[i])
+        }
+        
+    }
+    console.log(arr4);
+
+
+//     for (let i = 0; i < arr.length; i++) {
+       
+       
+//        if(arr.indexOf(arr[i]) !== i){
+//            arr.splice(i,1);
+//            i--;
+//        }
+       
+//    }
+//    console.log(arr)
+
+   for (let i = 0; i < arr.length-1; i++) {
+       
+        let arr5 = arr.slice(i+1);
+       if(arr5.indexOf(arr[i]) != -1){
+           arr.splice(i,1);
+           i--;
+       }
+       
+   }
+   console.log(arr)
+
+
+   //深拷贝和浅拷贝
+   //浅拷贝  新增加一个指针指向已存在的内存地址
+   //深拷贝   是增加一个指针并申请一个新的内存，使这个增加的指针指向新的内存
+
+
+   //类组件  有状态组件  智能组件  容器组件
+   //函数组件  无状态组件 UI组件  傻瓜组件
+
+
+   //setstate
+   //1.react数据更新页面不会渲染  需要通过setstate来再次 render
+   //2.setstate 是一个异步函数
+   //3.setstate   参数1是是更改的数据   参数二是修改完成的回调
+   //4.setstate 在使用中会进行合并操作   连续执行setstate只会执行一次setstate
+   //5.在异步执行setstate 都会执行render
+
+
+
+
+</script>

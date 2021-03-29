@@ -1,0 +1,17 @@
+{
+    "name": "web",
+    "version": "1.0.0",
+    "description": "",
+    "main": "webpack.config.js",
+    "dependencies": {
+        "webpack-cli": "^4.5.0",
+        "webpack": "^5.24.2"
+    },
+    "devDependencies": {},
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "build": "webpack --config webpack.config.js"
+    },
+    "author": "",
+    "license": "ISC"
+}

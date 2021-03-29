@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+    // 1,JS中filter函数的使用方法和实例(filter 方法用来迭代一个数组，并且按给出的条件过滤出符合的元素。filter方法传入一个回调函数，这个函数会携带一个参数，参数为当前迭代的项，也就是val)
+
+
+    let  arr  = [1,2,3,4,5,6];
+
+    let arr1 = arr.filter((val)=>{
+        return val>3
+    })
+    
+    console.log(arr1);  
+    // 输出的结果是[4,5,6] 
+
+
+
+
+
+    //Flash提供了ExternalInterface接口与JavaScript通信，ExternalInterface有两个方法，call和addCallback：
+   // ExternalInterface.addCallback("在js里可调用的flash方法名",flash内方法) //在flash中通过这个方法公开 在js中可调用的flash内的方法;
+    //ExternalInterface.call("js方法",传给js的参数) //在flash里调用js里的方法
+
+
+
+
+    //isNaN() 函数用于检查其参数是否是非数字值。
+    //escape() 函数可对字符串进行编码，这样就可以在所有的计算机上读取该字符串。
+    //eval() 函数可计算某个字符串，并执行其中的的 JavaScript 代码。
+
+
+
+    //浏览器的循环机制
+
+    //js是单线程的，或者说只有一个主线程，Event Loop是一个程序结构，用于等待和发送消息和事件
+
+
+    //防抖和节流
+    //防抖：input
+    //节流：resize  scroll
+
+
+
+    //Promise.all   参数传入一个数组  数组不一定全部都是Promise     如果数组中一个失败了会catch返回错误   但是其他的都会运行   因为Promise在创建实例的时候就运行了
+
+
+    const pro1 = new Promise((resolve,reject)=>{
+        setTimeout(()=>{
+            resolve("1")
+        },1000);
+    })
+    const pro2 = new Promise((resolve,reject)=>{
+        setTimeout(()=>{
+            resolve("2")
+        },2000);
+    })
+    const pro3 = new Promise((resolve,reject)=>{
+        setTimeout(()=>{
+            resolve("3")
+        },3000);
+    })
+
+
+    function PromiseAll(promiseArray){
+
+        return new Promise((resolve,reject)=>{
+            
+            if(!Array.isArray(promiseArray)){
+                return reject("传入的参数必须是数组")
+            }
+
+            let res = [];
+            
+            const promiseNums= promiseArray.length;
+
+
+            for(let i =0;i < promiseNums;i++){
+                Promise.resolve(promiseArray[i]).then(value=>{
+                    
+                    console.log(value,i)
+                    res[i] = value;
+                    if(i+1 === promiseNums){
+                        reject(res);
+                    }
+                })
+            }
+
+
+
+
+        })
+
+    }
+
+
+
+
+    PromiseAll([pro1,pro2,pro3]).then(res=>{
+        console.log(res);
+    }).catch(err=>{
+        console.log(err);
+    })
+
+
+
+
+
+    /*
+
+    堆：存放基本数据类型  例如 let  const 等
+ 
+    栈：存放地址引用类型  例如  object  arr  function等      
+
+
+    传递的时候  传递的是基本的话 传递的是值    传递的是地址引用的话   传递的是地址
+
+
+
+    */
+
+
+</script>

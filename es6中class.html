@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+    
+class A{
+    constructor(name){
+        // console.log(this)
+        this.name = name
+    }
+    show(){
+        console.log("hahah")
+    }
+    a(){
+        console.log("111")
+    }
+}
+
+
+class B extends A{
+    // constructor(name){
+    //     super(name);
+    //     console.log(this)
+    // }
+    // constructor(){
+    //     super()
+    //     // console.log(this)
+    // }
+    c(){
+        console.log(this.c)
+    }
+}
+let b = new B("哈哈");
+b.c();
+
+
+// function A(){
+
+//     this.name = "哈哈"
+
+// }
+
+// A.prototype.say = function(){
+//     console.log("1111")
+// }
+
+// let AA = new A();
+// console.log(AA)
+
+
+// function B (){
+
+// }
+
+// B.prototype = new A();
+
+
+
+// B.prototype.say = function(){
+//     console.log("2222")
+// }
+// let BB = new B();
+// console.log(BB)
+
+// AA.say();
+
+
+
+
+
+
+
+
+
+
+
+</script>

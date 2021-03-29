@@ -1,0 +1,5 @@
+
+React调用setState会重新调用render（），重新渲染页面，但是如果不想更新页面的话，就需要生命周期shouldComponentUpdate来判断，默认返回的true，如果返回的false表示页面不更新，但是一个父组件中有许多子组件，当父组件一个state改变的时候，子组件都要重新render，如果想优化就要写shouldComponent，但是因为组件太多就需要写许多，那样就会非常麻烦
+
+
+PureComponent就是默认对state和props进行比较，进行浅层的对比，如果两个state和props不一样会返回true进行更新，如果一样的话就返回true，不进行更新，会十分的方便。

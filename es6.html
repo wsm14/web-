@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <Button id="button">1</Button>
+    <Button id="button">2</Button>
+    <Button id="button">3</Button>
+</body>
+</html>
+<script>
+
+    // ES6
+    //new Set对象  add添加  clear删除所有  delete删除某个
+    let str = "abbfha";
+    console.log([...new Set(str)].join(""));
+
+    // Array.from就是一个类数组对象或者可遍历对象转换成一个真正的数组
+    console.log(Array.from(new Set(str)))
+
+    //async和await  注意当一个函数被async修饰以后, 它的返回值会被自动处理成Promise对象，await关键字使用的要求非常简单, 后面调用的函数要返回一个Promise对象 如果await后面是 promise对象会造成异步函数停止执行并且等待 promise 的解决,如果await后面是 正常的表达式则立即执行  await  Promise函数必须有resolve，不然会一直是pending状态。
+
+    async function load(){
+    await request("ajaxA");  //那么这里就是在等待ajaxA请求的完成
+    await request("ajaxB");
+    await request("ajaxC");
+    await request("ajaxD");
+    }
+
+
+    // let show = () =>{
+    //     setTimeout(()=>{
+    //         console.log("await函数")
+    //     },2000)
+    // }
+    let show = new Promise((resolve,reject)=>{
+        setTimeout(()=>{
+            resolve("await函数")
+        },2000)
+    })
+    async function load1(){
+        await show.then(data=>{console.log(data)});
+            
+
+        console.log("正常情况运行");
+    }
+    load1();
+
+    
+
+    function *show3(){
+    // 暂停函数
+    yield
+    } 
+
+    //数组是否包含某个东西
+    let Arr = [12, 5, 8]
+    console.log(Arr.includes(99)) // false
+    console.log(Arr.includes(8)) // true
+
+    //for...of  修复for...in的不足 循环数组不能循环普通的对象
+    //for...in // 循环数组循环对象的
+    let arr = [12, 5, 8, 99, 31]
+    for(let i in arr){
+    // 下标
+    console.log(i)
+    }
+
+    for(let i of arr){
+    // 值(value)
+    console.log(i)
+    }
+    let json = {a: 12, b: 5, c: 99}
+    for(let i in json ){
+    // key
+    console.log(i)
+    }
+
+
+    // for(let i of json ){
+    // // 报错（不可迭代）
+    // console.log(i)
+    // }
+    // keys => 所有的key 取出来
+    // values => 所有的value 取出来
+    // entries => 所有的key:value 键值对取出来
+
+    let arr5 = [12, 5, 8, 99, 660]
+
+    for(let key of arr.keys()){
+    console.log(key)
+    }
+    for(let value of arr.values()){
+    console.log(value)
+    }
+    for(let entry of arr.entries()){
+    console.log(entry)
+    }
+    for(let [key, value] of arr.entries()){
+    console.log(`${key}:${value}`)
+    }
+
+    //Object.keys() 方法会返回一个由一个给定对象的自身可枚举属性组成的数组，数组中属性名的排列顺序和正常循环遍历该对象时返回的顺序一致 。
+    let A = ['a', 'b', 'c'];
+    console.log(Object.keys(A)); // console: ['0', '1', '2']
+
+
+    //幂
+    console.log( Math.pow(3, 8) )
+    console.log( 3**8 )
+
+
+    // 闭包
+
+    // 因为var是函数级别作用域    等于循环几次中用的是1个i
+
+    
+
+    let btn = document.getElementsByTagName("Button")
+
+    // for( var i =0; i < btn.length; i++){
+    //     btn[i].onclick = function(){
+    //         alert(i);
+    //     }
+    // }
+
+    //解决方案
+    //1，把var变成let   因为let是块级作用域   块就是代码块  也是是大括号{};
+
+    //2,用闭包   因为var是函数级的作用域  所以 给点击事件包上一个函数就可以了  等于循环中给点击事件套上不用的i
+    for( var i =0; i < btn.length; i++){
+        (function(i){
+            btn[i].onclick = function(){
+            alert(i);
+        }
+        })(i);
+    }
+
+
+    // Promis
+
+
+    let p1 = new Promise((resolve,reject)=>{
+        console.log("哈哈哈哈");
+        reject("1111")
+    })
+
+
+    p1.then(data=>{
+        console.log(data)
+    },err=>{
+        console.log(err)
+    })
+
+
+
+
+
+    //export与export default
+    //1,在一个文件或模块中，export、import可以有多个，export default仅有一个
+    //2,通过export方式导出，在导入时要加{ }，export default则不需要     使用export default命令，为模块指定默认输出，这样就不需要知道所要加载模块的变量名
+    
+
+
+    //package.json 文件其实就是对项目或者模块包的描述，里面包含许多元信息。比如项目名称，项目版本，项目执行入口文件，项目贡献者等等。npm install 命令会根据这个文件下载所有依赖模块
+
+
+
+
+    //reverse   数组倒序
+    //charCodeAt() 方法可返回指定位置的字符的 Unicode 编码
+</script>
