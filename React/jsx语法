@@ -1,0 +1,11 @@
+
+jxs其实就是React.creatElement的一个语法糖，通过bable编译的
+
+
+React.creatElement（标签，属性，子组件）
+
+
+通过这个生成一个Element对象，然后再通过ReactDom.render来渲染真实的Dom
+
+
+协调！
