@@ -1,0 +1,9 @@
+
+
+React.createPortal(child,container);
+
+
+第一个参数child是任何可渲染的React子元素，例如一个元素，字符串或者fragment
+
+
+第二个参数是一个DoM元素

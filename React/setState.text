@@ -18,3 +18,17 @@
     如果同步更新了state  但是还没有执行render函数，那么子组件的props和state不能保持同步，就会引发很多问题。
 
     state数值合并是通过  Object.assign({},state,newState);
+
+4,setState的不可变性
+
+  this.setState赋值不要直接操控state的值，因为是引用类型，存的是一个地址，直接改变的话在shouldComponentUpdate会判断两个值相同
+
+
+
+
+  this.setState({
+    []:value
+  })
+
+  es6计算属性名
+  []属性名可以动态设置，用一个中括号来包住

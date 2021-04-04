@@ -10,25 +10,52 @@
     
 </body>
 </html>
+<script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
+
+  <!-- 加载我们的 React 组件。-->
+  <script src="like_button.js"></script>
+
 <script>
     
-    function A(){
-        let x = 1;
-        console.log(x)
-        function B(){
-            console.log(++x);
-        }
-        
-        return B;
-       
+//     function foo() {
+//         console.log( a ); 
+//     }
+
+//     function bar() {
+//         var a = 3;
+//         foo();
+//     }
+
+//     var a = 2;
+//     bar();
+
+
+
+//     function f() {}
+//     console.log(f.prototype,Object.getPrototypeOf(f))
+//     var a = f.prototype 
+//     var b = Object.getPrototypeOf(f); 
+
+// console.log(a == b); 
+
+   
+   
+    
+    class demo{
+       constructor(){
+        //    super();
+           this.name = "hahah"
+           this.nickname = "asdas"
+       }
     }
-    var b = 2;
-    let x = 1
-    console.log(A.prototype)
-    let a = A();
+    
+    let A = new demo();
 
-    a();
-    a();
-
+    A.props = "sdlasl"
+    console.log(A);
+    console.log(A.constructor.prototype)
+  
+  
 
 </script>

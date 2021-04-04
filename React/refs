@@ -1,0 +1,35 @@
+
+直接操作DOM元素
+
+1,字符串  ref=字符串  不推荐
+<div  ref="titleRef"></div>
+
+this.refs.titleRef
+
+
+
+
+2,对象   ref = 对象   目前推荐的方式
+
+createRef在react库中，是一个函数
+
+在构造器中  this.titleRef = createRef();
+
+
+<div  ref={this.titleRef}></div>
+
+取值是  this.titleRef.current  
+
+3，函数  
+
+<div  ref={arg = > this.titleRef = arg></div>
+
+构造器中  this.titleEl = null
+
+
+this.titleEl.innerHTML
+
+
+
+
+调用子组件的方法    在类组件上写ref获得类组件的实例对象

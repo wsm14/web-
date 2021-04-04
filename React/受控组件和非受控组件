@@ -1,0 +1,24 @@
+
+两个组件都和表单有关系
+
+表单元素通常会保存在一些内部的state
+
+受控组件： input，textarea，select之类的表单元素通常自己维护state更新
+
+在表单上设置value属性  用state来控制表单的值
+
+通过state的值和其绑定，控制state来控制其值就叫做受控组件
+
+通过change和setstate控制值
+
+
+
+
+
+
+event.preventDefault() 取消默认事件
+
+
+
+
+
