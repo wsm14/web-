@@ -1,0 +1,41 @@
+1,防抖和节流
+
+
+节流：
+函数多次触发，设置后，规定事件内只执行一次
+
+
+    function throttle(fn,delay){
+        let flag = true
+
+        return function(...args){
+             if(!flag)   return
+
+             falg = false
+
+             setTimeout(()=>{
+                  fn.apply(this,args)
+                  flag = true  
+             },delay) 
+        }
+
+    }
+
+
+
+防抖：
+函数多次触发，规定事件内，只触发最后一次
+
+
+function debounce (fn,delay){
+
+     let timer = null
+
+     return (...args) =>{
+         clearTimeout(timer);
+         timer = setTimeout(()=>{
+             fn.apply(this,args)
+         })
+     }   
+
+}
