@@ -10,11 +10,11 @@
     
 </body>
 </html>
-<script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
-  <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
+<!-- <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script> -->
 
   <!-- 加载我们的 React 组件。-->
-  <script src="like_button.js"></script>
+  <!-- <script src="like_button.js"></script> -->
 
 <script>
     
@@ -42,20 +42,59 @@
    
    
     
-    class demo{
-       constructor(){
-        //    super();
-           this.name = "hahah"
-           this.nickname = "asdas"
-       }
-    }
+    // class demo{
+    //    constructor(){
+    //     //    super();
+    //        this.name = "hahah"
+    //        this.nickname = "asdas"
+    //    }
+    // }
     
-    let A = new demo();
+    // let A = new demo();
 
-    A.props = "sdlasl"
-    console.log(A);
-    console.log(A.constructor.prototype)
+    // A.props = "sdlasl"
+    // console.log(A);
+    // console.log(A.constructor.prototype)
   
-  
+//     function throttle(fn, delay) {
+//   let flag = true
+//   console.log(fn,delay)
+//   return (...args) => {
+//       console.log(args)
+//     if (!flag) return
+//     flag = false
+//     setTimeout(() => {
+//       fn.apply(this, args)
+//       flag = true
+//     }, delay)
+//   }
+// }
+
+
+
+// function a (x,y){
+//     console.log(1111)
+// }
+
+
+// throttle(function(){
+//     a(1,2)
+// },1000)()
+
+console.dir(Promise);
+
+
+new Promise((resolve,reject)=>{
+    console.log("111")
+    resolve("111")
+}).then(res=>{
+    console.log("3333")
+})
+
+
+
+
+console.log("2222")
+
 
 </script>
