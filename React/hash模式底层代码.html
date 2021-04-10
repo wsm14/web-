@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <a href="#/home">首页</a>
+        <a href="#/about">关于</a>
+    </div>
+
+    <div class="router-view">
+
+
+    </div>
+</body>
+</html>
+<script>
+    //链接加上#就是hash模式不会进行跳转
+
+    //#其实就是描点，代表网页的位置，浏览器读取地址的时候，会自动滚到#后面的哪个位置，HTTP请求也不会包括#，因为#后面的任意字符都会被当成位置字符，改变#不触发页面重载，它只会滚动到相应的位置，不会重新加载页面，location.hash可读取#的值
+
+    const routerView = document.getElementsByClassName("router-view")[0];
+
+
+
+
+    window.addEventListener("hashchange",()=>{
+        console.log("你好",location.hash)
+        switch(location.hash){
+            case "#/home":
+            routerView.innerHTML = "首页";
+            break;
+            case "#/about":
+            routerView.innerHTML = "关于";
+            break;
+            default:
+            routerView.innerHTML = "";
+        }
+    })
+
+</script>

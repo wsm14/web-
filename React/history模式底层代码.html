@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <a href="/home">首页</a>
+        <a href="/about">关于</a>
+        <div class="router-view">
+
+
+        </div>
+    </div>
+</body>
+</html>
+
+<script>
+     const routerView = document.getElementsByClassName("router-view")[0];
+    //history是HTML5新增的  Live Server插件
+    //获取所有的a元素，自己来监听a元素的改变
+
+
+
+
+    const aEls = document.getElementsByTagName("a");
+    console.log(aEls)
+    
+    for (let el of aEls) {
+        el.addEventListener("click",e=>{
+            e.preventDefault();
+            
+            //三个参数 data数据、tittle标题、地址
+            const href = el.getAttribute("href")
+            history.pushState("","",href)
+            urlChange();
+        })
+    }
+
+    window.addEventListener("popstate",urlChange)
+
+    function urlChange(){
+        switch(location.pathname){
+            case "/home":
+            routerView.innerHTML = "首页";
+            break;
+            case "/about":
+            routerView.innerHTML = "关于";
+            break;
+            default:
+            routerView.innerHTML = "";
+        }
+    }
+
+
+</script>

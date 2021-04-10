@@ -1,0 +1,11 @@
+
+BrowserRouter 和 HashRouter
+history和hash模式
+
+
+Link和NavLink
+
+
+
+Route
+用于路由匹配  path地址   exact精准匹配   componment组件
