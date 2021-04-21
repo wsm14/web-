@@ -1,0 +1,105 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+// Object.defineProperty() 方法会直接在一个对象上定义一个新属性，或者修改一个对象的现有属性，并且返回此对象,数据劫持
+
+
+let data = {
+    name:"张三",
+    age:19
+}
+
+// let value = data.name
+// Object.defineProperty(data,"name",{
+
+// configurable:true,//可配置，是否可以设置name的值
+// enumerable:true,//可迭代，name是否可以被便利，false的话name不能被遍历获取到
+
+// get(){
+//     console.log("get")
+//     return value
+// },
+
+// set(newVal){
+//     console.log("set")
+//     val = newVal
+// },
+
+// // value:{
+
+// // } //设置name的值
+
+
+
+// })
+
+function observe(data,key,value){
+
+    Object.defineProperty(data,key,{
+
+    configurable:true,//可配置，是否可以设置name的值
+    enumerable:true,//可迭代，name是否可以被便利，false的话name不能被遍历获取到
+
+    get(){
+        console.log("get",value)
+        return value
+    },
+
+    set(newVal){
+        console.log("set",newVal)
+        value = newVal
+    },
+
+    // value:{
+
+    // } //设置name的值
+
+
+
+    })
+
+}
+
+
+for(let key in data){
+    observe(data,key,data[key])
+}
+
+
+/*
+
+这个数据劫持的问题
+
+1，如果新绑定一个值就没有数据劫持了
+
+2,如果delete一个属性，这个defineprotpy没有提示
+
+
+等于新增或者删除这个方法没法感受变化
+
+数组同样也是，push或者pop都感知不到
+
+*/
+
+
+
+
+
+
+
+
+</script>

@@ -1,0 +1,90 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+
+
+
+/*
+JS在执行语句的时候，会先创建一个执行上下文
+
+
+总体刚开始时一个执行栈
+
+执行栈里面时全局执行上下文
+
+执行上下文里面有  thisValue  文本环境（Lexical Environment）（词法环境）
+
+
+全局执行上下文中的文本环境   有全局对象 和全局scope
+
+全局对象（var）
+
+全局scope（let，const，class声明存储）
+
+先去全局 scope查找   再去全局对象查找
+
+
+var的变量提升
+
+function会声明成一个函数对象。函数对象体内会保存函数创建时的执行上下文的文本环境
+
+let临时死区
+
+
+函数创建的时候会保存自己当时的执行上下文，然后当函数运行的时候，自己执行上下文的文本环境就会以当时候保存的执行上下文为父，这也是函数的作用域，也是词法作用域，形成了作用域链，把自身的文本环境指向定义时候保存的执行上下文的文本环境。
+
+
+*/
+
+// let a = 10;
+// console.log(window.a)
+
+
+
+
+// console.log(foo);
+
+// if(true){
+//     function foo(){
+//         console.log("111")
+//     }
+// }
+
+// foo();
+
+function person(){
+    var age = 18;
+    function cat(){
+        age++;
+        console.log(age);
+    }
+    return cat;
+}
+person()();// 19
+person()();// 19
+
+/*
+块级作用域也就是{}，它会新创建一个文本环境，不会创建执行上下文，以原来的文本环境为父
+
+执行完后会被销毁
+
+*/
+
+
+
+
+</script>
+
+
+

@@ -9,3 +9,52 @@ Link和NavLink
 
 Route
 用于路由匹配  path地址   exact精准匹配   componment组件
+
+
+<Route exact path:"/" componment={Home} />
+<Route exact path:"/:id" componment={Home} /> 动态路由
+<Route exact componment={Home} />不加path等于都可以匹配上
+
+
+Swtich作用：匹配到第一个 那么后面的就不应该继续匹配了
+
+
+<Redirect ro="/" />:重定向
+
+
+NavLink:路径选中时，对应的a元素变为红色
+
+
+路由跳转：要获取history
+
+两种获取history的方式
+
+1，路由跳转的后获取history    this.props.history 
+
+2.普通情况 需要 WithRouter这个高阶组件
+
+
+动态路由传参
+1、<Route exact path:"/:id" componment={Home} />
+  this.props.match获取
+
+2、<Route exact path:"/home?id=100&aa=222" componment={Home} />
+
+  this.props.search获取
+
+3、<Route exact path:{{
+    pathname:"/home",
+    state:{
+        id:99
+    }
+
+}} componment={Home} />  
+this.props.location.data获取
+
+
+
+react-router-config进行集中路由管理
+
+renderRoutes方法返现出Route组件
+
+mathRoutes（arr,路由） 再一个数组里面查匹配到的路由
