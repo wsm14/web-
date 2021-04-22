@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="parent">
+        <div class="child"></div>
+      </div>
+</body>
+</html>
+<script>
+class EventEmitter {
+  constructor() {
+    this.handlers = {}
+  };
+  on(eventName, handler) {
+    if (!(eventName in this.handlers)) {
+      this.handlers[eventName] = [];
+    }
+    this.handlers[eventName].push(handler);
+  };
+  emit(eventName) {
+    if (!(eventName in this.handlers)) {
+      this.handlers[eventName] = [];
+    }
+    let arr = [...arguments];
+    arr.shift();
+    console.log(this.handlers[eventName])
+    for (let i = 0; i < this.handlers[eventName].length; i++) {
+      this.handlers[eventName][i](...arr);
+    }
+  }
+}
+
+const event = new EventEmitter();
+
+event.on('someEvent', (...arr) => {
+  console.log('some_event triggered', ...arr);
+});
+
+event.emit('someEvent', 'abc', '123', '444');
+</script>
