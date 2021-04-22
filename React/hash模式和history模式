@@ -1,0 +1,11 @@
+
+
+1，URL的hash也就是描点（#），本质上是改变window。location的href属性
+
+可以通过改变location.hash来改变href，但是页面不刷新
+
+
+
+e.preventDefault,阻止默认行为
+
+getAttribute（） ：获取DOM节点的属性

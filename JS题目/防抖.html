@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button>
+        点击
+    </button>
+</body>
+</html>
+<script>
+
+    const btn = document.querySelector("button");
+    
+    btn.onclick = dou(submit,1000,true);
+
+
+    function submit(e){
+        console.log(e,arguments);
+        console.log(this)
+        console.log(1111)
+    }
+
+
+    function dou(fn,wait,leading){
+
+        let timer = null;
+
+         leading = leading || false
+        
+         function handleFn(e){
+            if (timer){
+            clearTimeout(timer)
+            }
+            if(leading){
+                var isInvoke = false;
+                if (!timer) {
+                    fn.apply(this,arguments)
+                    isInvoke = true;
+                }
+                timer = setTimeout(()=>{
+                    timer= null
+                    if(!isInvoke){
+                        fn.apply(this,arguments)
+                    }
+                },wait)
+            }else{
+                timer = setTimeout(()=>{
+                
+                fn.apply(this,arguments)
+
+                 },wait)
+            }
+
+           
+        }
+
+
+
+
+        return handleFn;
+    }
+
+
+
+
+
+
+
+
+
+</script>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+
+    
+    //generrator//生成器
+
+
+    //生成器函数的定义,会返回一个迭代器
+    function* foo(){
+        
+        const name = yield "Hello";
+        console.log(name)
+        yield "World"
+    }
+
+    //iterator：迭代器,，是一个对象
+    const result = foo();
+    console.log(result)
+
+    //使用迭代器
+    //调用一次next，就会消耗一次迭代器
+
+    const result1 = result.next();
+    console.log(result1);
+
+
+    const result2 = result.next();
+    console.log(result2);
+
+
+    const result3 = result.next();
+    console.log(result3);
+    
+
+    //generator和Promise一起来使用
+
+
+
+
+
+
+
+</script>
