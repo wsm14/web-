@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+
+<script>
+
+
+// promise是一个构造函数
+
+
+    // let p = new Promise((resolve,reject)=>{
+    //     reject("哈哈哈哈哈")
+    // });
+
+    // p.then().catch(err=>{
+    //     console.log(err)
+    // })
+
+    // console.log(p)
+
+
+    // console.dir(Promise.resolve("哈哈哈").then(res=>{
+    //     console.log(res)
+    // }))
+
+
+    let  a = Promise.resolve("aaa");
+
+    let b = Promise.reject("bbb");
+
+    
+    let  c = Promise.resolve("ccc");
+
+    Promise.all([a,b,c]).then(res=>{
+        console.log(res)
+    },err=>{
+        console.log(err)
+    })
+
+
+
+    //all和race的区别     reace只要有一个成功就会返回     all是全部成功就会返回   如果一个失败了  则返回失败的那个
+
+
+    //如果一个失败想继续运行下去  循环promise实例  catch一下
+</script>
